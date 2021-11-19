@@ -1,0 +1,7 @@
+<% if local_assigns[:post] %>
+<% page_title post.title %>
+
+<p class="h5"><%=link_to post.title, post_path(post) %></p>
+<%= post_meta post %>
+<p><%= post.summary %></p>
+<% end %>

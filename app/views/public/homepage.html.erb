@@ -1,0 +1,31 @@
+<% page_title "Home" %>
+
+
+<div class="row">
+	<div class="col-8">
+		<div class="card p-5">
+		<p class="h4">Latest Posts</p>
+			<% @posts.each do |post| %>
+				<%= render partial: "post", locals: { post: post } %>
+			<% end %>
+		</div>
+	</div>
+	<div class="col-4">
+		<div class="card p-5">
+		<p class="h4">About</p>
+
+
+		<%= image_tag "tukipuppy.jpg", alt: "Pomeranian Puppy", class: "img-fluid mt-2 mb-2", style: "border-radius: 6px; border: 1px solid black;" %>
+
+		<p>
+			Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Eu turpis egestas pretium aenean pharetra magna. Quis lectus nulla at volutpat. Malesuada fames ac turpis egestas maecenas. Magna fringilla urna porttitor rhoncus dolor purus non enim. Mauris ultrices eros in cursus turpis massa tincidunt. Laoreet id donec ultrices tincidunt arcu non sodales.
+		</p>
+
+		<p class="h4">Categories</p>
+		<% @categories.each do |category| %>
+			<%= category.title %> - <%= category.total_count %>
+		<% end %>
+
+	</div>
+	</div>
+</div>

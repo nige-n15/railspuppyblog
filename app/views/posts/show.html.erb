@@ -1,0 +1,10 @@
+<div class="card p-5">
+  <h1>  <%= @post.title %></h1>
+    <small><%= post_meta @post %></small>
+
+    <%= simple_format(@post.body) %>
+    <%= @post.details %>
+    <p>Total number of posts: <%= Post.total %></p>
+
+    <%= render partial: "posts/view_form", locals: { post: @post } %>
+</div>

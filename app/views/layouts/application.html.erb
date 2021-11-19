@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:page_title) ? yield(:page_title) : "Ruby on Rails Blog" %> | Rails App</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col page-nav">
+              <%= render "layouts/menu" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= yield %>          
+        </div>
+      </div>
+    </div>
+    <% if flash[:success] %>
+      <p><%= flash[:success] %></p>
+    <% end %>
+
+
+    <%= render partial: "layouts/footer" %>
+
+    <%= yield(:scripts) if content_for?(:scripts) %>
+  </body>
+</html>
