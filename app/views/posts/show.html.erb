@@ -1,7 +1,9 @@
 <div class="card p-5">
   <h1>  <%= @post.title %></h1>
     <small><%= post_meta @post %></small>
-
+    <% if @post.main_image.attached? %>
+      <image src="<%=(url_for(@post.main_image))%>">
+    <% end %>
     <%= simple_format(@post.body) %>
     <%= @post.details %>
     <p>Total number of posts: <%= Post.total %></p>

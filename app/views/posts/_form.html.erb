@@ -27,6 +27,11 @@
     <%= form.text_area :body %>
   </div>
   <div class="field">
+    <%= form.label "Upload Image" %>
+    <%= form.file_field :main_image %>
+  </div>
+  
+  <div class="field">
     <%= form.label :category_id %>
     <%= form.select :category_id, Category.all.collect{|c| [c.title, c.id]} %>
   </div>

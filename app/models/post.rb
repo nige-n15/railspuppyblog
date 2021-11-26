@@ -6,6 +6,9 @@ class Post < ApplicationRecord
 
 	belongs_to :user, optional: true
 	belongs_to :category, optional: false
+	# Add Image to Post
+	has_one_attached :main_image
+
 	has_many :comments
 
 	def details

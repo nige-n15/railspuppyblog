@@ -42,6 +42,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+      @post.main_image.attach(params[:main_image])
       @post.validate
       if @post.update!(post_params)
         respond_to do |format|
@@ -72,6 +73,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :summary, :category_id, :body, :active)
+      params.require(:post).permit(:title, :summary, :category_id, :body, :active, :main_image)
     end
 end
